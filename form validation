@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #hed
+        {  padding: 40px; 
+            text-align:center;
+        }
+        body {
+            background: url(image3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #form {
+            
+            margin:auto;
+            width: 50%;
+            text-align: center;
+            border : 10px groove;
+            padding-bottom : 15px;
+            
+            
+        }
+        
+        
+    </style>
+    <script>
+        function validateForm() {
+
+            var letters = /^[A-Za-z]+$/;
+            if (!document.forms["myForm"]["fname"].value.match(letters)) {
+
+                alert(" Empty First  Name Or First Name should have only alphbets");
+                return false;
+            }
+            if (!document.forms["myForm"]["lastname"].value.match(letters)) {
+
+                alert("Empty Last Name Or Last Name should have only alphbets");
+              
+                return false;
+            }
+            var phneno = /^\d{10}$/;
+            if (!document.forms["myForm"]["phnnmbr"].value.match(phneno)) {
+
+                alert("Invalid Phone Number");
+                return false;
+            }
+            var eml = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!document.forms["myForm"]["Email"].value.match(eml)) {
+
+                alert("Invalid Email");
+
+                return false;
+            }
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            if (!document.forms["myForm"]["Pswd1"].value.match(passw)) {
+
+                alert("6 to 20 digit at least one numeric digit, one uppercase and one lowercase letter");
+
+                return false;
+            }
+            var cnpass = document.forms["myForm"]["Pswd1"].value
+            if (!document.forms["myForm"]["Pswd2"].value.match(cnpass)) {
+
+                alert("Please Enter the Same Password");
+
+                return false;
+            }
+            else
+               
+             return true;
+            
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="hed"> <h1> Welcome To User Registration</h1></div>
+    <div id="form">
+        <form name="myForm" onsubmit="return validateForm()">
+            <h3>
+                First Name*: &nbsp &nbsp &nbsp &nbsp
+                <input type="text" name="fname">
+                </br > </br >
+                Last Name*: &nbsp &nbsp &nbsp &nbsp
+                <input type="text" name="lastname">
+                </br > </br >
+                Phone No*: &nbsp &nbsp &nbsp &nbsp
+                <input type="text" name="phnnmbr">
+                </br > </br >
+                Email Id* &nbsp &nbsp: &nbsp &nbsp  &nbsp &nbsp
+                <input type="text" name="Email">
+                </br > </br >
+                Password* : &nbsp &nbsp &nbsp 
+                <input type="password" name="Pswd1">
+                </br > </br >
+                Cnf Password*: 
+                <input type="password" name="Pswd2">
+            </h3>
+            </br >
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>
